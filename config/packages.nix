@@ -10,6 +10,7 @@
     eza       # Better ls
     htop      # Process viewer
     jq        # JSON processor
+    glow      # Markdown terminal reader
     
     # Development tools
     docker         # Docker CLI (Desktop app via Homebrew)

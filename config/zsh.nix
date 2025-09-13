@@ -20,6 +20,7 @@
       nixconf = "cd ~/.config/nix && nvim .";
       
       cc = "claude";
+      ccg = "claude | glow -s auto - | less -R";
       
       # IDE shortcuts
       goland = "open -a GoLand.app";
@@ -30,11 +31,29 @@
       VARIABLERC="$HOME/.variablerc"
       if [[ ! -f "$VARIABLERC" ]]; then
         cat > "$VARIABLERC" << 'EOF'
+# User variables and exports
+# Add your custom environment variables here
 export EDITOR=nvim
+export BROWSER=open
 EOF
         echo "Created $VARIABLERC with default content"
       fi
       source "$VARIABLERC"
+
+      # Custom ask function for Claude CLI
+      ask() {
+          if [ -t 0 ]; then
+              # No piped input - stdin connected to terminal
+              claude --dangerously-skip-permissions -p "@ask $*" | glow -s auto -
+          else
+              # Piped input detected - stdin has data from the pipe
+              piped_content=$(cat)  # This reads the actual piped content
+              claude --dangerously-skip-permissions -p "@ask $* 
+
+Here's the log content:
+$piped_content" | glow -s auto -
+          fi
+      }
     '';
   };
 }
