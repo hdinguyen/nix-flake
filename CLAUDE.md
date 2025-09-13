@@ -58,3 +58,11 @@ This configuration uses a hybrid approach:
 - **Home Manager**: User-specific configurations and dotfiles
 
 When adding packages, consider whether they should be system-wide (`configuration.nix`) or user-specific (`config/packages.nix`).
+
+## Git Commit Guidelines
+
+**IMPORTANT**: When creating git commits in this repository:
+- NEVER add "Generated with [Claude Code]" messages to commit bodies
+- NEVER add "Co-Authored-By: Claude <noreply@anthropic.com>" tags
+- Keep commit messages clean and focused on the actual changes made
+- Follow conventional commit format when appropriate
