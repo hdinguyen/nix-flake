@@ -19,8 +19,8 @@
       rebuild = "sudo darwin-rebuild switch --flake ~/.config/nix";
       nixconf = "cd ~/.config/nix && nvim .";
       
-      cc = "claude";
-      ccg = "claude | glow -s auto - | less -R";
+      CC = "claude";
+      CCG = "claude | glow -s auto - | less -R";
       
       # IDE shortcuts
       goland = "open -a GoLand.app";
